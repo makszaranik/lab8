@@ -2,15 +2,15 @@ package lab8.Variant8;
 
 import java.util.Comparator;
 
-public class TextDocument extends Document{
+public class TextDocument extends Document {
   private int amountSymbols;
 
-  public TextDocument(){
+  public TextDocument() {
     this.information = "";
     this.amountSymbols = 0;
   }
 
-  public TextDocument(String info){
+  public TextDocument(String info) {
     this.information = info;
     this.amountSymbols = info.length();
   }
@@ -22,15 +22,12 @@ public class TextDocument extends Document{
     }
   }
 
-
   public static class TextDocumentSymbolComparator implements Comparator<TextDocument> {
     @Override
     public int compare(TextDocument doc1, TextDocument doc2) {
       return Integer.compare(doc1.getAmountSymbols(), doc2.getAmountSymbols());
     }
   }
-
-
 
   public int getAmountSymbols() {
     return amountSymbols;
@@ -57,8 +54,8 @@ public class TextDocument extends Document{
     return super.equals(doc);
   }
 
+  @Override
   public String toString() {
     return "Document's information: " + this.information + "\n" + "Amount of symbols: " + this.amountSymbols;
   }
-
 }

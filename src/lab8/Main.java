@@ -2,7 +2,10 @@ package lab8;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lab8.Variant5.Car;
 import lab8.Variant5.Ship;
 import lab8.Variant5.Ship.ShipByWeightComparator;
@@ -41,11 +44,12 @@ public class Main {
       System.out.println(ship);
     }
 
-    TreeSet<TextDocument> textDocuments = new TreeSet<>(new TextDocumentSymbolComparator());
-    textDocuments.add(new TextDocument("Hello"));
-    textDocuments.add(new TextDocument("Welcome to the Java world"));
-    textDocuments.add(new TextDocument("Short"));
-    System.out.println("TextDocuments in TreeSet sorted by symbol count:");
+
+    String[] texts = {"Hello", "Welcome to the Java world", "Short"};
+    List<TextDocument> textDocuments = Stream.of(texts)
+        .map(TextDocument::new)
+        .collect(Collectors.toList());
+    System.out.println("TextDocuments created by constructor reference:");
     for (TextDocument doc : textDocuments) {
       System.out.println(doc);
     }
