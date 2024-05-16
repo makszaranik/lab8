@@ -78,10 +78,13 @@ public class Car extends Vehicle{
     return  super.equals(car) && this.color.equals(car.color) && this.mark.equals(car.mark);
   }
 
-  public static class CarSpeedComparator implements Comparator<Car> {
-    @Override
-    public int compare(Car car1, Car car2) {
-      return Integer.compare(car1.getMaxSpeed(), car2.getMaxSpeed());
-    }
+
+  public static int compareBySpeed(Car c1, Car c2) {
+    return Integer.compare(c1.getMaxSpeed(), c2.getMaxSpeed());
   }
+
+  public int compareByColor(Car c1, Car c2) {
+    return c1.getColor().compareTo(c2.getColor());
+  }
+
 }

@@ -23,12 +23,14 @@ public class TextDocument extends Document{
   }
 
 
-  public class TextDocumentSymbolComparator implements Comparator<TextDocument> {
+  public static class TextDocumentSymbolComparator implements Comparator<TextDocument> {
     @Override
     public int compare(TextDocument doc1, TextDocument doc2) {
       return Integer.compare(doc1.getAmountSymbols(), doc2.getAmountSymbols());
     }
   }
+
+
 
   public int getAmountSymbols() {
     return amountSymbols;
